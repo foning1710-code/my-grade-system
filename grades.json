@@ -1,0 +1,1512 @@
+{
+  "FORM 4 SCE_MATH_cc1": {
+    "className": "FORM 4 SCE",
+    "subjectCode": "MATH",
+    "session": "cc1",
+    "coefficient": 2,
+    "teacher": "Mr. Mathematics",
+    "date": "2024-09-15",
+    "grades": [
+      {
+        "matricule": "E22GA00008",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000020",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00009",
+        "grade": "18",
+        "absent": false,
+        "observation": "Excellent work"
+      },
+      {
+        "matricule": "25E000039",
+        "grade": "9",
+        "absent": false,
+        "observation": "Needs improvement"
+      },
+      {
+        "matricule": "E23SC00008",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00058",
+        "grade": "16",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000038",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21PA00018",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21PA00019",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PB00055",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00025",
+        "grade": "17",
+        "absent": false,
+        "observation": "Very good"
+      },
+      {
+        "matricule": "E20PF00011",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24GE00037",
+        "grade": "8",
+        "absent": false,
+        "observation": "Below average"
+      },
+      {
+        "matricule": "E24GE00025",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24GE00019",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      }
+    ]
+  },
+  "FORM 5 ART_ENG_cc1": {
+    "className": "FORM 5 ART",
+    "subjectCode": "ENG",
+    "session": "cc1",
+    "coefficient": 2,
+    "teacher": "Mrs. English",
+    "date": "2024-09-20",
+    "grades": [
+      {
+        "matricule": "E21GA00004",
+        "grade": "16",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E20GA00017",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00003",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000297",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23GE00081",
+        "grade": "9",
+        "absent": false,
+        "observation": "Needs work"
+      },
+      {
+        "matricule": "E21GA00033",
+        "grade": "17",
+        "absent": false,
+        "observation": "Outstanding"
+      },
+      {
+        "matricule": "25E000085",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24AR00001",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24AR00003",
+        "grade": "10",
+        "absent": false,
+        "observation": "Just passed"
+      },
+      {
+        "matricule": "E22GA00033",
+        "grade": "18",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E22GA00007",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00005",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000385",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22SC00001",
+        "grade": "16",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00018",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000301",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      }
+    ]
+  },
+  "L6 ART_FREN_ds1": {
+    "className": "L6 ART",
+    "subjectCode": "FREN",
+    "session": "ds1",
+    "coefficient": 2,
+    "teacher": "Mme. Français",
+    "date": "2024-10-05",
+    "grades": [
+      {
+        "matricule": "E20GA00008",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24AR00006",
+        "grade": "17",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E24AR00005",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22AR00004",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24AR00009",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000331",
+        "grade": "9",
+        "absent": false,
+        "observation": "Below average"
+      },
+      {
+        "matricule": "25E000166",
+        "grade": "16",
+        "absent": false,
+        "observation": "Very good"
+      },
+      {
+        "matricule": "25E000295",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00023",
+        "grade": "18",
+        "absent": false,
+        "observation": "Outstanding"
+      }
+    ]
+  },
+  "FORM 1_MATH_cc1": {
+    "className": "FORM 1",
+    "subjectCode": "MATH",
+    "session": "cc1",
+    "grades": [
+      {
+        "matricule": "25E000194",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000324",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000109",
+        "grade": "16.5",
+        "absent": false,
+        "observation": "Good work"
+      },
+      {
+        "matricule": "25E000077",
+        "grade": "13.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000027",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000193",
+        "grade": "12",
+        "absent": false,
+        "observation": "Needs practice"
+      },
+      {
+        "matricule": "25E000198",
+        "grade": "07.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000106",
+        "grade": "8",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000223",
+        "grade": "09",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000082",
+        "grade": "12.75",
+        "absent": false,
+        "observation": "Below average"
+      },
+      {
+        "matricule": "25E000311",
+        "grade": "14.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000054",
+        "grade": "06.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000014",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21PB00015",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22PA00043",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000013",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000167",
+        "grade": "14.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000361",
+        "grade": "01",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000170",
+        "grade": "16.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00016",
+        "grade": "15.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000158",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000079",
+        "grade": "18.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000037",
+        "grade": "16",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24MB00038",
+        "grade": "07",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000081",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22PA00020",
+        "grade": "05",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000080",
+        "grade": "17",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000206",
+        "grade": "10.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000182",
+        "grade": "16.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000240",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000356",
+        "grade": "03.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PB00057",
+        "grade": "16.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000121",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000258",
+        "grade": "07.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000074",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000222",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000363",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000051",
+        "grade": "06.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000056",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000164",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000195",
+        "grade": "09.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PB00075",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000002",
+        "grade": "17",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00026",
+        "grade": "18",
+        "absent": false,
+        "observation": ""
+      }
+    ],
+    "coefficient": "4",
+    "teacher": "FONING BOVARICE",
+    "date": "2025-10-03"
+  },
+  "FORM 2_ENG_ds1": {
+    "className": "FORM 2",
+    "subjectCode": "ENG",
+    "session": "ds1",
+    "coefficient": 2,
+    "teacher": "Mrs. English Teacher",
+    "date": "2024-10-15",
+    "grades": [
+      {
+        "matricule": "E24GE00013",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000116",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24GE00003",
+        "grade": "17",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E22PA00004",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24GE00001",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000364",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000184",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24GE00040",
+        "grade": "16",
+        "absent": false,
+        "observation": "Very good"
+      },
+      {
+        "matricule": "E20PB00015",
+        "grade": "9",
+        "absent": false,
+        "observation": "Needs improvement"
+      },
+      {
+        "matricule": "E23PA00014",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      }
+    ]
+  },
+  "FORM 3_SCI_cc1": {
+    "className": "FORM 3",
+    "subjectCode": "BIO",
+    "session": "cc1",
+    "coefficient": 2,
+    "teacher": "Mr. Science",
+    "date": "2024-09-25",
+    "grades": [
+      {
+        "matricule": "E23GE00052",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00036",
+        "grade": "16",
+        "absent": false,
+        "observation": "Good work"
+      },
+      {
+        "matricule": "E21PA00027",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000004",
+        "grade": "18",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E24GE00062",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000343",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21PA00014",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22PA00015",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000239",
+        "grade": "17",
+        "absent": false,
+        "observation": "Outstanding"
+      },
+      {
+        "matricule": "E23GE00026",
+        "grade": "9",
+        "absent": false,
+        "observation": "Needs work"
+      }
+    ]
+  },
+  "U6 SC_PHY_cc1": {
+    "className": "U6 SC",
+    "subjectCode": "PHY",
+    "session": "cc1",
+    "coefficient": 2,
+    "teacher": "Dr. Physics",
+    "date": "2024-10-10",
+    "grades": [
+      {
+        "matricule": "E23AR00002",
+        "grade": "16",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E23SC00001",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000137",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000248",
+        "grade": "18",
+        "absent": false,
+        "observation": "Outstanding"
+      },
+      {
+        "matricule": "25E000376",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00023",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23SC00002",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000264",
+        "grade": "9",
+        "absent": false,
+        "observation": "Below average"
+      }
+    ]
+  },
+  "FORM 4 ART_HIST_ds1": {
+    "className": "FORM 4 ART",
+    "subjectCode": "HIST",
+    "session": "ds1",
+    "coefficient": 2,
+    "teacher": "Mr. History",
+    "date": "2024-10-20",
+    "grades": [
+      {
+        "matricule": "E20PA00061",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000219",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00022",
+        "grade": "17",
+        "absent": false,
+        "observation": "Excellent"
+      },
+      {
+        "matricule": "E20PA00089",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00015",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00028",
+        "grade": "16",
+        "absent": false,
+        "observation": "Very good"
+      },
+      {
+        "matricule": "E20PA00033",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00003",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23GE00042",
+        "grade": "18",
+        "absent": false,
+        "observation": "Outstanding"
+      },
+      {
+        "matricule": "25E000299",
+        "grade": "9",
+        "absent": false,
+        "observation": "Needs improvement"
+      },
+      {
+        "matricule": "E24GE00023",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24GE00024",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000045",
+        "grade": "15",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00012",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      }
+    ]
+  },
+  "FORM 1_MATH_ds1": {
+    "className": "FORM 1",
+    "subjectCode": "MATH",
+    "session": "ds1",
+    "grades": [
+      {
+        "matricule": "25E000194",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000324",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000109",
+        "grade": "14.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000077",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000027",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000193",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000198",
+        "grade": "06",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000106",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000223",
+        "grade": "06.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000082",
+        "grade": "07.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000311",
+        "grade": "11.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000054",
+        "grade": "04",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000014",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21PB00015",
+        "grade": "14.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22PA00043",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000013",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000167",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000361",
+        "grade": "04",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000170",
+        "grade": "17",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00016",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000158",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000079",
+        "grade": "17",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000037",
+        "grade": "17.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24MB00038",
+        "grade": "03.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000081",
+        "grade": "07",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22PA00020",
+        "grade": "03.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000080",
+        "grade": "13.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000206",
+        "grade": "09.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000182",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000240",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000356",
+        "grade": "07",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PB00057",
+        "grade": "16.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000121",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000258",
+        "grade": "05.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000074",
+        "grade": "07.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000222",
+        "grade": "17.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000363",
+        "grade": "07",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000051",
+        "grade": "05",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000056",
+        "grade": "12",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000164",
+        "grade": "08.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000195",
+        "grade": "08.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PB00075",
+        "grade": "09.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000002",
+        "grade": "16.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00026",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      }
+    ],
+    "coefficient": "4",
+    "teacher": "FONING BOVARICE",
+    "date": "2025-10-03"
+  },
+  "FORM 5 SCE_MATH_ds1": {
+    "className": "FORM 5 SCE",
+    "subjectCode": "MATH",
+    "session": "ds1",
+    "grades": [
+      {
+        "matricule": "E24SC00014",
+        "grade": "07.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00010",
+        "grade": "05.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00015",
+        "grade": "11.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00009",
+        "grade": "06.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000126",
+        "grade": "05",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24SC00006",
+        "grade": "06",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00054",
+        "grade": "14.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00072",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GF00005",
+        "grade": "06",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000197",
+        "grade": "05.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000098",
+        "grade": "04",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000087",
+        "grade": "02.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000354",
+        "grade": "02.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000064",
+        "grade": "11.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000257",
+        "grade": "02",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00015",
+        "grade": "0",
+        "absent": false,
+        "observation": ""
+      }
+    ],
+    "coefficient": "4",
+    "teacher": "FONING BOVARICE",
+    "date": "2025-10-03"
+  },
+  "FORM 5 SCE_MATH_cc1": {
+    "className": "FORM 5 SCE",
+    "subjectCode": "MATH",
+    "session": "cc1",
+    "grades": [
+      {
+        "matricule": "E24SC00014",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00010",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00015",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00009",
+        "grade": "10",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000126",
+        "grade": "07.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24SC00006",
+        "grade": "10.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00054",
+        "grade": "17",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20PA00072",
+        "grade": "11",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GF00005",
+        "grade": "11.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000197",
+        "grade": "05.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000098",
+        "grade": "08",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000087",
+        "grade": "01.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000354",
+        "grade": "03.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000064",
+        "grade": "13",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000257",
+        "grade": "08.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00015",
+        "grade": "0",
+        "absent": false,
+        "observation": ""
+      }
+    ],
+    "coefficient": "4",
+    "teacher": "FONING BOVARICE",
+    "date": "2025-10-03"
+  },
+  "L6 SC_MATH_cc1": {
+    "className": "L6 SC",
+    "subjectCode": "MATH",
+    "session": "cc1",
+    "grades": [
+      {
+        "matricule": "25E000115",
+        "grade": "02.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000156",
+        "grade": "0",
+        "absent": true,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00025",
+        "grade": "12.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24AR00008",
+        "grade": "03",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00025",
+        "grade": "01.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23SC00009",
+        "grade": "04",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00029",
+        "grade": "0",
+        "absent": true,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00021",
+        "grade": "07.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23SC00004",
+        "grade": "10.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00022",
+        "grade": "08",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00002",
+        "grade": "0",
+        "absent": true,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000123",
+        "grade": "04",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00016",
+        "grade": "02.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00033",
+        "grade": "01",
+        "absent": false,
+        "observation": ""
+      }
+    ],
+    "coefficient": "4",
+    "teacher": "FONING BOVARICE",
+    "date": "2025-10-03"
+  },
+  "L6 SC_MATH_ds1": {
+    "className": "L6 SC",
+    "subjectCode": "MATH",
+    "session": "ds1",
+    "grades": [
+      {
+        "matricule": "25E000115",
+        "grade": "07",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000156",
+        "grade": "0",
+        "absent": true,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00025",
+        "grade": "16",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E24AR00008",
+        "grade": "05",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E22GA00025",
+        "grade": "05.25",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23SC00009",
+        "grade": "05.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00029",
+        "grade": "0",
+        "absent": true,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00021",
+        "grade": "09",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E23SC00004",
+        "grade": "14",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00022",
+        "grade": "09",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00002",
+        "grade": "05",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "25E000123",
+        "grade": "07.5",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E21GA00016",
+        "grade": "05.75",
+        "absent": false,
+        "observation": ""
+      },
+      {
+        "matricule": "E20GA00033",
+        "grade": "05",
+        "absent": false,
+        "observation": ""
+      }
+    ],
+    "coefficient": "4",
+    "teacher": "FONING BOVARICE",
+    "date": "2025-10-03"
+  }
+}

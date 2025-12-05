@@ -1,0 +1,13 @@
+{
+  "school": {
+    "name": "COMPLEXE SCOLAIRE BILINGUE LA TRIDYL",
+    "address": "BP : 1748 Douala",
+    "phone": "686 62 44 83/683 62 71 17",
+    "academicYear": "2024-2025"
+  },
+  "printing": {
+    "autoPrint": true,
+    "showRank": true,
+    "showStatistics": true
+  }
+}

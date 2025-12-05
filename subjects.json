@@ -1,0 +1,130 @@
+{
+  "subjects": [
+    {
+      "code": "MATH",
+      "name": "MATHEMATICS",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "PHY",
+      "name": "PHYSICS",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "CHEM",
+      "name": "CHEMISTRY",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "AMATH",
+      "name": "ADDITIONAL MATHEMATICS",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "FMATH",
+      "name": "FURTHER MATHEMATICS",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "COMP",
+      "name": "COMPUTER SCIENCE/ICT",
+      "group": 1,
+      "coefficient": 1
+    },
+    {
+      "code": "BIO",
+      "name": "BIOLOGY",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "HBIO",
+      "name": "HUMAN BIOLOGY",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "GEOG",
+      "name": "GEOGRAPHY",
+      "group": 2,
+      "coefficient": 2
+    },
+    {
+      "code": "HIST",
+      "name": "HISTORY",
+      "group": 2,
+      "coefficient": 2
+    },
+    {
+      "code": "ECON",
+      "name": "ECONOMICS",
+      "group": 2,
+      "coefficient": 2
+    },
+    {
+      "code": "COMM",
+      "name": "COMMERCE",
+      "group": 2,
+      "coefficient": 2
+    },
+    {
+      "code": "ENG",
+      "name": "ENGLISH",
+      "group": 2,
+      "coefficient": 2
+    },
+    {
+      "code": "FREN",
+      "name": "FRENCH",
+      "group": 2,
+      "coefficient": 2
+    },
+    {
+      "code": "LIT",
+      "name": "LITERATURE",
+      "group": 2,
+      "coefficient": 1
+    },
+    {
+      "code": "CIT",
+      "name": "CITIZENSHIP",
+      "group": 2,
+      "coefficient": 1
+    },
+    {
+      "code": "REL",
+      "name": "RELIGIOUS STUDIES",
+      "group": 2,
+      "coefficient": 1
+    },
+    {
+      "code": "SPORT",
+      "name": "SPORTS",
+      "group": 3,
+      "coefficient": 1
+    },
+    {
+      "code": "MAN",
+      "name": "MANUAL LABOUR",
+      "group": 3,
+      "coefficient": 1
+    },
+    {
+      "code": "GEOL",
+      "name": "GEOLOGY",
+      "group": 1,
+      "coefficient": 2
+    },
+    {
+      "code": "FSN",
+      "name": "FOOD SCIENCE AND NUTRITION",
+      "group": 1,
+      "coefficient": 2
+    }
+  ]
+}

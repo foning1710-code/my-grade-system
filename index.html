@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSB LA TRIDYL - Grade Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Add environment configuration -->
+    <meta name="environment" content="production">
+    <meta name="mongodb-api" id="mongodbApi" content="/api">
+    
+    <!-- Add for Heroku compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+    
+    <!-- Add PWA meta tags for mobile compatibility -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Add JSON-LD for better SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CSB LA TRIDYL Grade Management System",
+        "description": "Online grade management system for LA TRIDYL Bilingual School Complex",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="school-header">
+            <div class="school-left">
+                <h1>REPUBLIQUE DU CAMEROUN</h1>
+                <p>Paix-Travail-Patrie</p>
+                <h2>COMPLEXE SCOLAIRE BILINGUE LA TRIDYL</h2>
+                <p>BP : 1748 Douala Tel. : 686 62 44 83/683 62 71 17</p>
+            </div>
+            <div class="logo-space">
+                <div class="logo-placeholder">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <!-- Online status indicator -->
+                <div class="online-status" id="onlineStatus">
+                    <i class="fas fa-circle" style="color: #4CAF50;"></i>
+                    <span>Online</span>
+                </div>
+            </div>
+            <div class="school-right">
+                <h1>REPUBLIC OF CAMEROON</h1>
+                <p>Peace-Work-Fatherland</p>
+                <h2>LA TRIDYL BILINGUAL SCHOOL COMPLEX</h2>
+                <p>P.O. Box : 1748 Douala Phone : 686 62 44 83/683 62 71 17</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3 id="userDisplayName">Grade Manager</h3>
+                <p>Academic Year: <span id="currentYear">2024-2025</span></p>
+                <!-- Database status -->
+                <div class="db-status" id="dbStatus">
+                    <i class="fas fa-database"></i>
+                    <span>MongoDB Connected</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-tab="grade-entry">
+                    <i class="fas fa-edit"></i>
+                    <span>Grade Entry</span>
+                </li>
+                <li class="nav-item" data-tab="grade-reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Grade Reports</span>
+                </li>
+                <li class="nav-item" data-tab="report-cards">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Report Cards</span>
+                </li>
+                <li class="nav-item" data-tab="pvr-summary">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>PVR Summary</span>
+                </li>
+                <li class="nav-item" data-tab="statistics">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Statistics</span>
+                </li>
+                <li class="nav-item" data-tab="student-management">
+                    <i class="fas fa-users"></i>
+                    <span>Student Management</span>
+                </li>
+                <li class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+                <!-- Add Login/Logout button -->
+                <li class="nav-item" id="authNavItem">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span id="authText">Login</span>
+                </li>
+            </ul>
+            
+            <div class="system-info">
+                <p><i class="fas fa-info-circle"></i> Logical Academy System</p>
+                <p class="version">v2.0.0</p>
+                <!-- Add deployment info -->
+                <p class="deployment-info">
+                    <i class="fas fa-cloud"></i> Heroku + MongoDB Atlas
+                </p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Add Login/Signup Tab (hidden by default) -->
+            <div id="auth" class="tab-content" style="display: none;">
+                <div class="tab-header">
+                    <h2><i class="fas fa-user-circle"></i> Authentication</h2>
+                </div>
+                
+                <div class="auth-container">
+                    <div class="auth-form" id="loginForm">
+                        <h3>Login to System</h3>
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="admin@latridyl.edu.cm">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Enter password">
+                        </div>
+                        <button class="btn-primary" id="loginBtn">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <p class="auth-switch" id="showSignup">Don't have an account? Sign up</p>
+                    </div>
+                    
+                    <div class="auth-form" id="signupForm" style="display: none;">
+                        <h3>Create New Account</h3>
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" class="form-control" placeholder="teacher@latridyl.edu.cm">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password (min 8 characters)</label>
+                            <input type="password" id="signupPassword" class="form-control" placeholder="Create password">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupRole">Role</label>
+                            <select id="signupRole" class="form-control">
+                                <option value="teacher">Teacher</option>
+                                <option value="admin">Administrator</option>
+                                <option value="viewer">Viewer</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" id="signupBtn">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                        <p class="auth-switch" id="showLogin">Already have an account? Login</p>
+                    </div>
+                    
+                    <div class="auth-info">
+                        <h4><i class="fas fa-info-circle"></i> System Access</h4>
+                        <p>This is a secure online grade management system powered by:</p>
+                        <ul>
+                            <li><strong>Heroku:</strong> Cloud platform hosting</li>
+                            <li><strong>MongoDB Atlas:</strong> Cloud database</li>
+                            <li><strong>JWT Authentication:</strong> Secure access</li>
+                        </ul>
+                        <p>For demo access, use:<br>
+                        <strong>Email:</strong> demo@latridyl.edu.cm<br>
+                        <strong>Password:</strong> demo123</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="tab-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <div class="date-display" id="currentDate"></div>
+                    <!-- Add Sync button -->
+                    <button class="btn-secondary" id="syncDataBtn" title="Sync with cloud database">
+                        <i class="fas fa-sync-alt"></i> Sync Data
+                    </button>
+                </div>
+                
+                <!-- Add data sync status -->
+                <div class="sync-status" id="syncStatus">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Last synced: <span id="lastSyncTime">Just now</span></span>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #2C5E3A;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalStudents">0</h3>
+                            <p>Total Students</p>
+                            <small>Cloud stored</small>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #C62828;">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalSubjects">0</h3>
+                            <p>Total Subjects</p>
+                            <small>Cloud stored</small>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #1565C0;">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="gradesEntered">0</h3>
+                            <p>Grades Entered</p>
+                            <small>Cloud stored</small>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #FF8F00;">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="reportsGenerated">0</h3>
+                            <p>Reports Generated</p>
+                            <small>Cloud stored</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Enrollment by Class</h3>
+                        <canvas id="enrollmentChart"></canvas>
+                        <p class="chart-note">Data from MongoDB Atlas</p>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Grade Distribution</h3>
+                        <canvas id="gradeDistributionChart"></canvas>
+                        <p class="chart-note">Data from MongoDB Atlas</p>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" data-action="enter-grades">
+                            <i class="fas fa-plus-circle"></i>
+                            Enter New Grades
+                        </button>
+                        <button class="action-btn" data-action="generate-reports">
+                            <i class="fas fa-file-pdf"></i>
+                            Generate Reports
+                        </button>
+                        <button class="action-btn" data-action="print-cards">
+                            <i class="fas fa-print"></i>
+                            Print Report Cards
+                        </button>
+                        <button class="action-btn" data-action="view-statistics">
+                            <i class="fas fa-chart-line"></i>
+                            View Statistics
+                        </button>
+                        <!-- Add backup button -->
+                        <button class="action-btn" id="cloudBackupBtn">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Backup to Cloud
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Add connection info panel -->
+                <div class="connection-info">
+                    <h4><i class="fas fa-cloud"></i> Cloud Connection Status</h4>
+                    <div class="connection-details">
+                        <p><strong>Backend:</strong> <span id="backendStatus">Heroku Connected</span></p>
+                        <p><strong>Database:</strong> <span id="databaseStatus">MongoDB Atlas Connected</span></p>
+                        <p><strong>Storage:</strong> <span id="storageStatus">Cloud Storage Active</span></p>
+                        <p><strong>API Endpoint:</strong> <code id="apiEndpoint">/api/v1</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rest of your content remains the same until settings tab -->
+
+            <!-- Settings Tab - Updated for online features -->
+            <div id="settings" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                    <button class="btn-primary" id="saveSettingsBtn">
+                        <i class="fas fa-save"></i> Save Settings
+                    </button>
+                </div>
+                
+                <div class="settings-container">
+                    <!-- Add Online Settings Section -->
+                    <div class="settings-section">
+                        <h3><i class="fas fa-cloud"></i> Online Settings</h3>
+                        <div class="settings-group">
+                            <label for="apiEndpointUrl">API Endpoint URL</label>
+                            <input type="text" id="apiEndpointUrl" class="form-control" 
+                                   value="https://your-app-name.herokuapp.com/api" 
+                                   placeholder="Heroku app API endpoint">
+                            <small class="form-text">Your Heroku app URL + /api</small>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="mongodbConnection">MongoDB Connection String</label>
+                            <div class="input-group">
+                                <input type="password" id="mongodbConnection" class="form-control" 
+                                       value="mongodb+srv://username:password@cluster.mongodb.net/school_db" 
+                                       placeholder="mongodb+srv://...">
+                                <button class="btn-secondary" id="toggleMongoView">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="form-text">From MongoDB Atlas > Connect > Driver</small>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="autoSync">Auto Sync Interval (minutes)</label>
+                            <select id="autoSync" class="form-control">
+                                <option value="0">Disabled</option>
+                                <option value="5">5 minutes</option>
+                                <option value="15" selected>15 minutes</option>
+                                <option value="30">30 minutes</option>
+                                <option value="60">1 hour</option>
+                            </select>
+                            <small class="form-text">Automatically sync data with cloud</small>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="offlineMode" checked>
+                                Enable Offline Mode
+                            </label>
+                            <small class="form-text">Work offline and sync when connection is restored</small>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-school"></i> School Information</h3>
+                        <div class="settings-group">
+                            <label for="schoolName">School Name</label>
+                            <input type="text" id="schoolName" class="form-control" value="COMPLEXE SCOLAIRE BILINGUE LA TRIDYL">
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="schoolAddress">Address</label>
+                            <input type="text" id="schoolAddress" class="form-control" value="BP : 1748 Douala">
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="schoolPhone">Telephone</label>
+                            <input type="text" id="schoolPhone" class="form-control" value="686 62 44 83/683 62 71 17">
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="academicYear">Academic Year</label>
+                            <input type="text" id="academicYear" class="form-control" value="2024-2025">
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-book"></i> Subjects Management</h3>
+                        <div class="subject-management">
+                            <div class="subject-list">
+                                <h4>Available Subjects</h4>
+                                <ul id="subjectList">
+                                    <!-- Subjects will be listed here -->
+                                </ul>
+                                <button class="btn-secondary" id="addSubjectBtn">
+                                    <i class="fas fa-plus"></i> Add Subject
+                                </button>
+                            </div>
+                            
+                            <div class="subject-form">
+                                <h4>Subject Details</h4>
+                                <div class="form-group">
+                                    <label for="subjectCode">Subject Code</label>
+                                    <input type="text" id="subjectCode" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subjectName">Subject Name *</label>
+                                    <input type="text" id="subjectName" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subjectGroup">Subject Group</label>
+                                    <select id="subjectGroup" class="form-control">
+                                        <option value="1">Group 1</option>
+                                        <option value="2">Group 2</option>
+                                        <option value="3">Group 3</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subjectCoefficient">Default Coefficient</label>
+                                    <input type="number" id="subjectCoefficient" class="form-control" value="1">
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn-primary" id="saveSubjectBtn">
+                                        <i class="fas fa-save"></i> Save Subject
+                                    </button>
+                                    <button type="button" class="btn-secondary" id="deleteSubjectBtn">
+                                        <i class="fas fa-trash"></i> Delete Subject
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-print"></i> Printing Settings</h3>
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="autoPrint" checked>
+                                Auto-print after generation
+                            </label>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="showRank" checked>
+                                Show rank in reports
+                            </label>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="showStatistics" checked>
+                                Include statistics in reports
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-database"></i> Data Management</h3>
+                        <div class="data-management">
+                            <button class="btn-secondary" id="exportDataBtn">
+                                <i class="fas fa-download"></i> Export All Data (JSON)
+                            </button>
+                            <button class="btn-secondary" id="importDataBtn">
+                                <i class="fas fa-upload"></i> Import Data
+                            </button>
+                            <button class="btn-danger" id="resetDataBtn">
+                                <i class="fas fa-trash-alt"></i> Reset Local Data
+                            </button>
+                        </div>
+                        
+                        <div class="backup-info">
+                            <p><i class="fas fa-info-circle"></i> Last cloud backup: <span id="lastBackup">Never</span></p>
+                            <button class="btn-primary" id="backupDataBtn">
+                                <i class="fas fa-cloud-upload-alt"></i> Backup to Cloud
+                            </button>
+                            <button class="btn-secondary" id="restoreBackupBtn">
+                                <i class="fas fa-cloud-download-alt"></i> Restore from Cloud
+                            </button>
+                        </div>
+                        
+                        <!-- MongoDB Atlas Connection Test -->
+                        <div class="connection-test">
+                            <h4><i class="fas fa-plug"></i> Test Database Connection</h4>
+                            <button class="btn-secondary" id="testMongoDBBtn">
+                                <i class="fas fa-database"></i> Test MongoDB Connection
+                            </button>
+                            <div id="connectionTestResult"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- User Management Section -->
+                    <div class="settings-section">
+                        <h3><i class="fas fa-user-shield"></i> User Management</h3>
+                        <div class="user-management">
+                            <div class="user-list">
+                                <h4>System Users</h4>
+                                <ul id="userList">
+                                    <!-- Users will be listed here -->
+                                </ul>
+                            </div>
+                            <div class="user-actions">
+                                <button class="btn-secondary" id="refreshUsersBtn">
+                                    <i class="fas fa-sync"></i> Refresh Users
+                                </button>
+                                <button class="btn-secondary" id="logoutAllBtn">
+                                    <i class="fas fa-sign-out-alt"></i> Logout All Users
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Connecting to MongoDB Atlas...</p>
+            <div class="loading-progress" id="loadingProgress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirm Action</h3>
+            <p id="modalMessage">Are you sure you want to perform this action?</p>
+            <div class="modal-actions">
+                <button class="btn-primary" id="modalConfirmBtn">Confirm</button>
+                <button class="btn-secondary" id="modalCancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Modal -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <h3>Import Data</h3>
+            <p>Select a JSON file to import:</p>
+            <input type="file" id="importFile" accept=".json">
+            <div class="modal-actions">
+                <button class="btn-primary" id="importConfirmBtn">Import</button>
+                <button class="btn-secondary" id="importCancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Connection Status Bar -->
+    <div class="connection-status-bar" id="connectionStatusBar">
+        <span id="connectionStatusText">Online - Connected to MongoDB Atlas</span>
+        <button id="reconnectBtn" class="btn-small">
+            <i class="fas fa-redo"></i> Reconnect
+        </button>
+    </div>
+
+    <!-- Add PWA Install Prompt -->
+    <div id="installPrompt" class="install-prompt">
+        <div class="install-prompt-content">
+            <p>Install Grade Management System for offline use?</p>
+            <button id="installBtn" class="btn-primary">Install</button>
+            <button id="dismissInstallBtn" class="btn-secondary">Not Now</button>
+        </div>
+    </div>
+
+    <!-- Add Service Worker Registration -->
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }).catch(function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <!-- Add environment configuration -->
+    <script>
+        // Environment configuration for Heroku + MongoDB Atlas
+        window.appConfig = {
+            environment: 'production',
+            apiBaseUrl: window.location.origin + '/api',
+            mongodbAtlas: true,
+            herokuHosting: true,
+            offlineStorage: true,
+            version: '2.0.0',
+            buildDate: new Date().toISOString().split('T')[0]
+        };
+    </script>
+
+    <script src="script.js"></script>
+    <!-- Add API service for MongoDB Atlas -->
+    <script src="api-service.js"></script>
+</body>
+</html>
