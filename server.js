@@ -1,6 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');  // <-- THIS LINE MUST BE PRESENT
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
@@ -1394,4 +1399,5 @@ app.listen(PORT, () => {
     console.log(`Data directory: ${dataDir}`);
     console.log(`Backup directory: ${path.join(__dirname, 'backups')}`);
 });
+
 
