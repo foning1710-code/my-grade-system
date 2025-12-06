@@ -23,25 +23,26 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-// Update MongoDB connection to handle Render
+// MongoDB Connection - SIMPLIFIED VERSION
 const MONGODB_URI = process.env.MONGODB_URI;
+
 if (!MONGODB_URI) {
   console.error('❌ MONGODB_URI environment variable is not set');
-  process.exit(1); // Exit if no MongoDB URI
+} else {
+  console.log('🔗 MongoDB URI found, connecting...');
+  
+  // SIMPLIFIED CONNECTION - remove deprecated options
+  mongoose.connect(MONGODB_URI)
+    .then(() => {
+      console.log('✅ Connected to MongoDB Atlas');
+      console.log('Database:', mongoose.connection.db?.databaseName);
+      initializeData();
+    })
+    .catch(err => {
+      console.error('❌ MongoDB connection failed:', err.message);
+      console.log('⚠️ App will run without database (data saved locally)');
+    });
 }
-
-mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000,
-    socketTimeoutMS: 45000,
-}).then(() => {
-    console.log('✅ Connected to MongoDB Atlas');
-    initializeData(); // Call initialization after connection
-}).catch(err => {
-    console.error('❌ MongoDB connection error:', err.message);
-    console.error('Please check your MONGODB_URI environment variable');
-});
 // Data directory path
 const dataDir = path.join(__dirname, 'data');
 
@@ -1399,5 +1400,6 @@ app.listen(PORT, () => {
     console.log(`Data directory: ${dataDir}`);
     console.log(`Backup directory: ${path.join(__dirname, 'backups')}`);
 });
+
 
 
