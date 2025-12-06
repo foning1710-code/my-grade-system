@@ -13,6 +13,30 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
+// Add this near the top, after requiring modules
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+// Update MongoDB connection to handle Render
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  console.error('❌ MONGODB_URI environment variable is not set');
+  process.exit(1); // Exit if no MongoDB URI
+}
+
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+}).then(() => {
+    console.log('✅ Connected to MongoDB Atlas');
+    initializeData(); // Call initialization after connection
+}).catch(err => {
+    console.error('❌ MongoDB connection error:', err.message);
+    console.error('Please check your MONGODB_URI environment variable');
+});
 // Data directory path
 const dataDir = path.join(__dirname, 'data');
 
@@ -1370,3 +1394,4 @@ app.listen(PORT, () => {
     console.log(`Data directory: ${dataDir}`);
     console.log(`Backup directory: ${path.join(__dirname, 'backups')}`);
 });
+
