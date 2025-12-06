@@ -3,153 +3,814 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Grade System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>CSB LA TRIDYL - Grade Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/x-icon" href="#">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">🏫 School Grade Management System</h1>
-        <p class="text-center text-muted">Teachers can enter grades from anywhere</p>
-        
-        <div class="alert alert-info">
-            <strong>Status:</strong> 
-            <span id="status">Checking server status...</span>
-        </div>
-        
-        <div class="card mt-4">
-            <div class="card-header bg-primary text-white">
-                <h4>Enter Student Grade</h4>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="school-header">
+            <div class="school-left">
+                <h1>REPUBLIQUE DU CAMEROUN</h1>
+                <p>Paix-Travail-Patrie</p>
+                <h2>COMPLEXE SCOLAIRE BILINGUE LA TRIDYL</h2>
+                <p>BP : 1748 Douala Tel. : 686 62 44 83/683 62 71 17</p>
             </div>
-            <div class="card-body">
-                <form id="gradeForm">
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label>Teacher Name</label>
-                            <input type="text" class="form-control" id="teacher" required>
+            <div class="logo-space">
+                <div class="logo-placeholder">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+            <div class="school-right">
+                <h1>REPUBLIC OF CAMEROON</h1>
+                <p>Peace-Work-Fatherland</p>
+                <h2>LA TRIDYL BILINGUAL SCHOOL COMPLEX</h2>
+                <p>P.O. Box : 1748 Douala Phone : 686 62 44 83/683 62 71 17</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Grade Manager</h3>
+                <p>Academic Year: <span id="currentYear">2024-2025</span></p>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-tab="grade-entry">
+                    <i class="fas fa-edit"></i>
+                    <span>Grade Entry</span>
+                </li>
+                <li class="nav-item" data-tab="grade-reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Grade Reports</span>
+                </li>
+                <li class="nav-item" data-tab="report-cards">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Report Cards</span>
+                </li>
+                <li class="nav-item" data-tab="pvr-summary">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>PVR Summary</span>
+                </li>
+                <li class="nav-item" data-tab="statistics">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Statistics</span>
+                </li>
+                <li class="nav-item" data-tab="student-management">
+                    <i class="fas fa-users"></i>
+                    <span>Student Management</span>
+                </li>
+                <li class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+            
+            <div class="system-info">
+                <p><i class="fas fa-info-circle"></i> Logical Academy System</p>
+                <p class="version">v2.0.0</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="tab-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <div class="date-display" id="currentDate"></div>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #2C5E3A;">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Subject</label>
-                            <input type="text" class="form-control" id="subject" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Student Name</label>
-                            <input type="text" class="form-control" id="student" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Grade (0-20)</label>
-                            <input type="number" class="form-control" id="marks" min="0" max="20" required>
+                        <div class="stat-info">
+                            <h3 id="totalStudents">0</h3>
+                            <p>Total Students</p>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Save Grade</button>
-                </form>
-                <div id="message" class="mt-3"></div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #C62828;">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalSubjects">0</h3>
+                            <p>Total Subjects</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #1565C0;">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="gradesEntered">0</h3>
+                            <p>Grades Entered</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #FF8F00;">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="reportsGenerated">0</h3>
+                            <p>Reports Generated</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Enrollment by Class</h3>
+                        <canvas id="enrollmentChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Grade Distribution</h3>
+                        <canvas id="gradeDistributionChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" data-action="enter-grades">
+                            <i class="fas fa-plus-circle"></i>
+                            Enter New Grades
+                        </button>
+                        <button class="action-btn" data-action="generate-reports">
+                            <i class="fas fa-file-pdf"></i>
+                            Generate Reports
+                        </button>
+                        <button class="action-btn" data-action="print-cards">
+                            <i class="fas fa-print"></i>
+                            Print Report Cards
+                        </button>
+                        <button class="action-btn" data-action="view-statistics">
+                            <i class="fas fa-chart-line"></i>
+                            View Statistics
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            <!-- Grade Entry Tab -->
+            <div id="grade-entry" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-edit"></i> Grade Entry</h2>
+                    <button class="btn-primary" id="saveGradesBtn">
+                        <i class="fas fa-save"></i> Save All Grades
+                    </button>
+                </div>
+                
+                <div class="grade-entry-controls">
+                    <div class="control-group">
+                        <label for="entryClass"><i class="fas fa-school"></i> Class</label>
+                        <select id="entryClass" class="form-control">
+                            <option value="">Select Class</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="entrySubject"><i class="fas fa-book"></i> Subject</label>
+                        <select id="entrySubject" class="form-control">
+                            <option value="">Select Subject</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="entrySession"><i class="fas fa-calendar-alt"></i> Session</label>
+                        <select id="entrySession" class="form-control">
+                            <option value="">Select Session</option>
+                            <option value="cc1">CC 1</option>
+                            <option value="cc2">CC 2</option>
+                            <option value="cc3">CC 3</option>
+                            <option value="cc4">CC 4</option>
+                            <option value="cc5">CC 5</option>
+                            <option value="ds1">DS 1</option>
+                            <option value="ds2">DS 2</option>
+                            <option value="ds3">DS 3</option>
+                            <option value="ds4">DS 4</option>
+                            <option value="ds5">DS 5</option>
+                            <option value="premock1">PREMOCK 1</option>
+                            <option value="premock2">PREMOCK 2</option>
+                            <option value="mock">MOCK</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="coefficient"><i class="fas fa-balance-scale"></i> Coefficient</label>
+                        <input type="number" id="coefficient" class="form-control" value="1" min="1" max="10">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="evaluationDate"><i class="fas fa-calendar"></i> Evaluation Date</label>
+                        <input type="date" id="evaluationDate" class="form-control">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="teacherName"><i class="fas fa-user-graduate"></i> Teacher</label>
+                        <input type="text" id="teacherName" class="form-control" placeholder="Teacher's Name">
+                    </div>
+                    
+                    <button class="btn-secondary" id="loadStudentsBtn">
+                        <i class="fas fa-sync"></i> Load Students
+                    </button>
+                </div>
+                
+                <div class="grade-entry-table-container">
+                    <table class="grade-entry-table">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Matricule</th>
+                                <th>Name</th>
+                                <th>Grade /20</th>
+                                <th>Absent</th>
+                                <th>Observations</th>
+                                <th>Cumulative Avg.</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradeEntryTableBody">
+                            <!-- Students will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="grade-notes">
+                    <h4><i class="fas fa-info-circle"></i> Notes:</h4>
+                    <ul>
+                        <li>Enter grades between 0 and 20</li>
+                        <li>Check "Absent" if student was absent</li>
+                        <li>Use "Observations" for any remarks</li>
+                        <li>Click "Save" button after entering all grades</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Grade Reports Tab -->
+            <div id="grade-reports" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-chart-bar"></i> Grade Reports</h2>
+                    <div class="report-controls">
+                        <button class="btn-primary" id="generateReportBtn">
+                            <i class="fas fa-file-export"></i> Generate Report
+                        </button>
+                        <button class="btn-secondary" id="printReportBtn">
+                            <i class="fas fa-print"></i> Print Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="report-filters">
+                    <div class="filter-group">
+                        <label for="reportClass">Class</label>
+                        <select id="reportClass" class="form-control">
+                            <option value="">Select Class</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="reportSubject">Subject</label>
+                        <select id="reportSubject" class="form-control">
+                            <option value="">Select Subject</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="reportTerm">Term</label>
+                        <select id="reportTerm" class="form-control">
+                            <option value="term1">Term 1</option>
+                            <option value="term2">Term 2</option>
+                            <option value="term3">Term 3</option>
+                            <option value="all">All Terms</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-secondary" id="filterReportBtn">
+                        <i class="fas fa-filter"></i> Apply Filters
+                    </button>
+                </div>
+                
+                <div class="report-container" id="reportContainer">
+                    <!-- Report will be generated here -->
+                    <div class="no-report">
+                        <i class="fas fa-file-alt fa-3x"></i>
+                        <h3>No Report Generated</h3>
+                        <p>Select class, subject, and click "Generate Report"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Report Cards Tab -->
+            <div id="report-cards" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-file-alt"></i> Report Cards</h2>
+                    <div class="card-controls">
+                        <button class="btn-primary" id="generateCardBtn">
+                            <i class="fas fa-id-card"></i> Generate Card
+                        </button>
+                        <button class="btn-secondary" id="printCardBtn" disabled>
+                            <i class="fas fa-print"></i> Print Card
+                        </button>
+                        <button class="btn-secondary" id="exportCardBtn" disabled>
+                            <i class="fas fa-download"></i> Export PDF
+                        </button>
+                        <button class="btn-primary" id="generateAllCardsBtn">
+                            <i class="fas fa-print"></i> Generate All Cards
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card-filters">
+                    <div class="filter-group">
+                        <label for="cardClass">Class</label>
+                        <select id="cardClass" class="form-control">
+                            <option value="">Select Class</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="cardStudent">Student</label>
+                        <select id="cardStudent" class="form-control" disabled>
+                            <option value="">Select Student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="cardTerm">Term</label>
+                        <select id="cardTerm" class="form-control">
+                            <option value="1">Term 1</option>
+                            <option value="2">Term 2</option>
+                            <option value="3">Term 3</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-secondary" id="loadCardDataBtn">
+                        <i class="fas fa-search"></i> Load Data
+                    </button>
+                </div>
+                
+                <div class="report-card-preview" id="reportCardPreview">
+                    <!-- Report card will be generated here -->
+                    <div class="no-card">
+                        <i class="fas fa-user-graduate fa-3x"></i>
+                        <h3>No Report Card Generated</h3>
+                        <p>Select student and term, then click "Generate Card"</p>
+                    </div>
+                </div>
+                
+                <!-- All Cards Container -->
+                <div id="allCardsContainer" style="display: none; margin-top: 30px;">
+                    <h3><i class="fas fa-print"></i> All Report Cards for Class</h3>
+                    <div class="all-cards-controls" style="margin-bottom: 20px;">
+                        <button class="btn-primary" onclick="printAllReportCards()">
+                            <i class="fas fa-print"></i> Print All Cards
+                        </button>
+                        <button class="btn-secondary" onclick="exportAllReportCards()">
+                            <i class="fas fa-download"></i> Export All as PDF
+                        </button>
+                    </div>
+                    <div id="allCardsPreview">
+                        <!-- All cards will be generated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVR Summary Tab -->
+            <div id="pvr-summary" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-clipboard-list"></i> PVR Summary</h2>
+                    <div class="pvr-controls">
+                        <button class="btn-primary" id="generatePVRBtn">
+                            <i class="fas fa-file-contract"></i> Generate PVR
+                        </button>
+                        <button class="btn-secondary" id="printPVRBtn" disabled>
+                            <i class="fas fa-print"></i> Print PVR
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pvr-filters">
+                    <div class="filter-group">
+                        <label for="pvrClass">Class</label>
+                        <select id="pvrClass" class="form-control">
+                            <option value="">Select Class</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="pvrTerm">Term</label>
+                        <select id="pvrTerm" class="form-control">
+                            <option value="1">Term 1</option>
+                            <option value="2">Term 2</option>
+                            <option value="3">Term 3</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="pvrSession">Session Type</label>
+                        <select id="pvrSession" class="form-control">
+                            <option value="cc">Contrôle Continu</option>
+                            <option value="ds">Devoir Surveillé</option>
+                            <option value="all">All Sessions</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-secondary" id="loadPVRDataBtn">
+                        <i class="fas fa-table"></i> Load Data
+                    </button>
+                </div>
+                
+                <div class="pvr-container" id="pvrContainer">
+                    <!-- PVR will be generated here -->
+                    <div class="no-pvr">
+                        <i class="fas fa-clipboard fa-3x"></i>
+                        <h3>No PVR Generated</h3>
+                        <p>Select class and term, then click "Generate PVR"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Tab -->
+            <div id="statistics" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-chart-pie"></i> Statistics</h2>
+                    <div class="stats-controls">
+                        <button class="btn-secondary" id="refreshStatsBtn">
+                            <i class="fas fa-sync"></i> Refresh Statistics
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="stats-filters">
+                    <div class="filter-group">
+                        <label for="statsClass">Class</label>
+                        <select id="statsClass" class="form-control">
+                            <option value="all">All Classes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="statsTerm">Term</label>
+                        <select id="statsTerm" class="form-control">
+                            <option value="all">All Terms</option>
+                            <option value="1">Term 1</option>
+                            <option value="2">Term 2</option>
+                            <option value="3">Term 3</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-secondary" id="applyStatsFilterBtn">
+                        <i class="fas fa-chart-line"></i> Apply Filters
+                    </button>
+                </div>
+                
+                <div class="statistics-grid">
+                    <div class="stat-card-wide">
+                        <h3>Enrollment by Gender</h3>
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                    
+                    <div class="stat-card-wide">
+                        <h3>Class Performance</h3>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    
+                    <div class="stat-card-wide">
+                        <h3>Success Rate</h3>
+                        <div class="success-rate">
+                            <div class="rate-circle" id="successRateCircle">
+                                <span>0%</span>
+                            </div>
+                            <div class="rate-details">
+                                <p><span class="rate-pass" id="passCount">0</span> Passed</p>
+                                <p><span class="rate-fail" id="failCount">0</span> Failed</p>
+                                <p><span class="rate-total" id="totalCount">0</span> Total</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card-wide">
+                        <h3>Top Performing Students</h3>
+                        <div class="top-students" id="topStudentsList">
+                            <!-- Top students will be listed here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detailed-stats">
+                    <h3>Detailed Statistics</h3>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Students</th>
+                                <th>Average Grade</th>
+                                <th>Highest</th>
+                                <th>Lowest</th>
+                                <th>Pass Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailedStatsBody">
+                            <!-- Statistics will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Student Management Tab -->
+            <div id="student-management" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-users"></i> Student Management</h2>
+                    <button class="btn-primary" id="addStudentBtn">
+                        <i class="fas fa-user-plus"></i> Add Student
+                    </button>
+                </div>
+                
+                <div class="student-management-container">
+                    <div class="student-list-section">
+                        <h3>Student List</h3>
+                        <div class="student-list-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="studentSearch" placeholder="Search students...">
+                            </div>
+                            <select id="studentClassFilter" class="form-control">
+                                <option value="all">All Classes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="student-list-container">
+                            <table class="student-list-table">
+                                <thead>
+                                    <tr>
+                                        <th>Matricule</th>
+                                        <th>Name</th>
+                                        <th>Class</th>
+                                        <th>Gender</th>
+                                        <th>Birth Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="studentListBody">
+                                    <!-- Students will be listed here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="student-form-section">
+                        <h3>Student Information</h3>
+                        <form id="studentForm">
+                            <div class="form-group">
+                                <label for="studentMatricule">Matricule *</label>
+                                <input type="text" id="studentMatricule" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentName">Full Name *</label>
+                                <input type="text" id="studentName" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentClass">Class *</label>
+                                <select id="studentClass" class="form-control" required>
+                                    <option value="">Select Class</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentGender">Gender *</label>
+                                <select id="studentGender" class="form-control" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentBirthDate">Birth Date *</label>
+                                <input type="date" id="studentBirthDate" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentBirthPlace">Birth Place</label>
+                                <input type="text" id="studentBirthPlace" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentParent">Parent/Guardian</label>
+                                <input type="text" id="studentParent" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="studentPhone">Contact Phone</label>
+                                <input type="tel" id="studentPhone" class="form-control">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Save Student
+                                </button>
+                                <button type="button" class="btn-secondary" id="clearStudentFormBtn">
+                                    <i class="fas fa-times"></i> Clear
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <div class="tab-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                    <button class="btn-primary" id="saveSettingsBtn">
+                        <i class="fas fa-save"></i> Save Settings
+                    </button>
+                </div>
+                
+                <div class="settings-container">
+                    <div class="settings-section">
+                        <h3><i class="fas fa-school"></i> School Information</h3>
+                        <div class="settings-group">
+                            <label for="schoolName">School Name</label>
+                            <input type="text" id="schoolName" class="form-control" value="COMPLEXE SCOLAIRE BILINGUE LA TRIDYL">
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="schoolAddress">Address</label>
+                            <input type="text" id="schoolAddress" class="form-control" value="BP : 1748 Douala">
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="schoolPhone">Telephone</label>
+                            <input type="text" id="schoolPhone" class="form-control" value="686 62 44 83/683 62 71 17">
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label for="academicYear">Academic Year</label>
+                            <input type="text" id="academicYear" class="form-control" value="2024-2025">
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-book"></i> Subjects Management</h3>
+                        <div class="subject-management">
+                            <div class="subject-list">
+                                <h4>Available Subjects</h4>
+                                <ul id="subjectList">
+                                    <!-- Subjects will be listed here -->
+                                </ul>
+                                <button class="btn-secondary" id="addSubjectBtn">
+                                    <i class="fas fa-plus"></i> Add Subject
+                                </button>
+                            </div>
+                            
+                            <div class="subject-form">
+                                <h4>Subject Details</h4>
+                                <div class="form-group">
+                                    <label for="subjectCode">Subject Code</label>
+                                    <input type="text" id="subjectCode" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subjectName">Subject Name *</label>
+                                    <input type="text" id="subjectName" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subjectGroup">Subject Group</label>
+                                    <select id="subjectGroup" class="form-control">
+                                        <option value="1">Group 1</option>
+                                        <option value="2">Group 2</option>
+                                        <option value="3">Group 3</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subjectCoefficient">Default Coefficient</label>
+                                    <input type="number" id="subjectCoefficient" class="form-control" value="1">
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn-primary" id="saveSubjectBtn">
+                                        <i class="fas fa-save"></i> Save Subject
+                                    </button>
+                                    <button type="button" class="btn-secondary" id="deleteSubjectBtn">
+                                        <i class="fas fa-trash"></i> Delete Subject
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-print"></i> Printing Settings</h3>
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="autoPrint" checked>
+                                Auto-print after generation
+                            </label>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="showRank" checked>
+                                Show rank in reports
+                            </label>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <label>
+                                <input type="checkbox" id="showStatistics" checked>
+                                Include statistics in reports
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3><i class="fas fa-database"></i> Data Management</h3>
+                        <div class="data-management">
+                            <button class="btn-secondary" id="exportDataBtn">
+                                <i class="fas fa-download"></i> Export All Data
+                            </button>
+                            <button class="btn-secondary" id="importDataBtn">
+                                <i class="fas fa-upload"></i> Import Data
+                            </button>
+                            <button class="btn-danger" id="resetDataBtn">
+                                <i class="fas fa-trash-alt"></i> Reset All Data
+                            </button>
+                        </div>
+                        
+                        <div class="backup-info">
+                            <p><i class="fas fa-info-circle"></i> Last backup: <span id="lastBackup">Never</span></p>
+                            <button class="btn-secondary" id="backupDataBtn">
+                                <i class="fas fa-save"></i> Backup Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading...</p>
         </div>
-        
-        <div class="card mt-4">
-            <div class="card-header bg-info text-white">
-                <h4>All Grades</h4>
-                <button onclick="loadGrades()" class="btn btn-sm btn-light">🔄 Refresh</button>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Teacher</th>
-                            <th>Subject</th>
-                            <th>Student</th>
-                            <th>Grade</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="gradesTable">
-                        <tr><td colspan="5" class="text-center">No grades yet</td></tr>
-                    </tbody>
-                </table>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirm Action</h3>
+            <p id="modalMessage">Are you sure you want to perform this action?</p>
+            <div class="modal-actions">
+                <button class="btn-primary" id="modalConfirmBtn">Confirm</button>
+                <button class="btn-secondary" id="modalCancelBtn">Cancel</button>
             </div>
         </div>
     </div>
 
-    <script>
-        // Check server status
-        async function checkStatus() {
-            try {
-                const response = await fetch('/api/health');
-                const data = await response.json();
-                document.getElementById('status').innerHTML = 
-                    `✅ Server is running | MongoDB: ${data.mongodb} | Grades: ${data.gradesCount}`;
-            } catch (error) {
-                document.getElementById('status').innerHTML = 
-                    '❌ Server connection failed - trying again...';
-                setTimeout(checkStatus, 3000);
-            }
-        }
-        
-        // Save grade
-        document.getElementById('gradeForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const grade = {
-                teacher: document.getElementById('teacher').value,
-                subject: document.getElementById('subject').value,
-                student: document.getElementById('student').value,
-                marks: document.getElementById('marks').value
-            };
-            
-            const response = await fetch('/api/save-grade', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(grade)
-            });
-            
-            const result = await response.json();
-            const msgDiv = document.getElementById('message');
-            
-            if (result.success) {
-                msgDiv.innerHTML = '<div class="alert alert-success">✅ Grade saved successfully!</div>';
-                document.getElementById('gradeForm').reset();
-                loadGrades();
-                setTimeout(() => msgDiv.innerHTML = '', 3000);
-            } else {
-                msgDiv.innerHTML = `<div class="alert alert-danger">❌ Error: ${result.message}</div>`;
-            }
-        });
-        
-        // Load grades
-        async function loadGrades() {
-            try {
-                const response = await fetch('/api/grades');
-                const data = await response.json();
-                
-                const table = document.getElementById('gradesTable');
-                
-                if (!data.grades || data.grades.length === 0) {
-                    table.innerHTML = '<tr><td colspan="5" class="text-center">No grades submitted yet</td></tr>';
-                    return;
-                }
-                
-                let html = '';
-                data.grades.forEach(grade => {
-                    html += `<tr>
-                        <td>${grade.teacher}</td>
-                        <td>${grade.subject}</td>
-                        <td>${grade.student}</td>
-                        <td><strong>${grade.marks}/20</strong></td>
-                        <td>${grade.savedAt}</td>
-                    </tr>`;
-                });
-                table.innerHTML = html;
-            } catch (error) {
-                console.error('Error loading grades:', error);
-            }
-        }
-        
-        // Auto-refresh grades
-        setInterval(loadGrades, 5000);
-        
-        // Initial load
-        checkStatus();
-        loadGrades();
-    </script>
+    <!-- Import Modal -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <h3>Import Data</h3>
+            <p>Select a JSON file to import:</p>
+            <input type="file" id="importFile" accept=".json">
+            <div class="modal-actions">
+                <button class="btn-primary" id="importConfirmBtn">Import</button>
+                <button class="btn-secondary" id="importCancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
